@@ -30,8 +30,7 @@
       
       <form role="form" method="post" class="form-horizontal" action="{{ url('account/add') }}" enctype="multipart/form-data">
         @csrf
-        <div class="row">
-  <div class="col-md-8 col-xs-offset-2">
+        <div class="box-body">
           <div class="form-group">
             <label for="companyEmail" class="col-sm-2 control-label">Email address</label>
             <div class="col-sm-10">
@@ -68,37 +67,39 @@
           </div>
 
           <div class="form-group">
-            <label for="city" class="col-sm-2 control-label"></label>
-            <div class="col-sm-5">
+            <label for="city" class="col-sm-2 control-label">City</label>
+            <div class="col-sm-10">
             <input type="text" class="form-control" name="city" id="city" placeholder="Enter city" required="required" value="{{$data->city}}">
            </div>
-          
-            <label for="state" class="col-sm-2 control-label"></label>
-            <div class="col-sm-5">
+          </div>
+
+          <div class="form-group">
+            <label for="state" class="col-sm-2 control-label">State</label>
+            <div class="col-sm-10">
             <input type="text" class="form-control" name="state" id="state" placeholder="Enter state" required="required" value="{{$data->state}}">
            </div>
           </div>
 
           <div class="form-group">
-            <label for="country" class="col-sm-2 control-label"></label>
-            <div class="col-sm-5">
+            <label for="country" class="col-sm-2 control-label">Country</label>
+            <div class="col-sm-10">
             <input type="text" class="form-control" name="country" id="country" placeholder="Enter country" required="required" value="{{$data->country}}">
            </div>
-    
-            <label for="zip" class="col-sm-2 control-label"></label>
-            <div class="col-sm-5">
+          </div>
+
+          <div class="form-group">
+            <label for="zip" class="col-sm-2 control-label">Zip</label>
+            <div class="col-sm-10">
             <input type="text" class="form-control" name="zip" id="zip" maxlength="6" placeholder="Enter zip" required="required" value="{{$data->zip}}">
            </div>
           </div>
-
-          <div class="box-footer text-center">
-            <button type="button" class="btn btn-default">Cancel</button>
-            <button type="submit" class="btn btn-success">Submit</button>
-          </div>
-        </div>
         </div>
         <!-- /.box-body -->
 
+        <div class="box-footer text-center">
+          <button type="button" class="btn btn-default">Cancel</button>
+          <button type="submit" class="btn btn-success">Update</button>
+        </div>
       </form>
 
     </div>

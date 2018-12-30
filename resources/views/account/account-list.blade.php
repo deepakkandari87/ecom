@@ -14,7 +14,7 @@
           <th>Address</th>
         </tr>
         <tr>
-          <td><img src="{{config('constants.APP_BASE_PATH')}}{{$val->logo}}" width="100" height="70"></td>
+          <td><img src="{{config('constants.APP_BASE_PATH')}}{{$val->logo}}" width="150" height="120"></td>
           <td>{{$val->company_name}}</td>
           <td>{{Auth::user()->mobile}}</td>
           <td>{{Auth::user()->email}}</td>

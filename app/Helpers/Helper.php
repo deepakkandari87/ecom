@@ -38,13 +38,5 @@ class Helper
 
         return $data;
     }
-
-    public static function arrayToObject($array) {
-        return (object) $array;
-    }
-
-    public static function objectToArray($object) {
-        return (array) $object;
-    }
     
 }//END CLASS

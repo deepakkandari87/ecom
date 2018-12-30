@@ -58,26 +58,46 @@
         <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
-            <span>My Account</span>
+            <span>Account</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="/account"><i class="fa fa-circle-o"></i> Account Detail</a></li>
-            <li><a href="/account/companies"><i class="fa fa-circle-o"></i> Companies</a></li>
             <li><a href="/user"><i class="fa fa-circle-o"></i> User</a></li>
-            <li><a href="/account/tax"><i class="fa fa-circle-o"></i> Tax</a></li>
+          </ul>
+        </li>
+            
+        <li class="treeview">
+          <a href="javascript:void(0)">
+            <i class="fa fa-pie-chart"></i>
+            <span>Admin Channels</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/admin-channel"><i class="fa fa-circle-o"></i> Channels list</a></li>
+            <li><a href="/admin-channel/add"><i class="fa fa-circle-o"></i> Add channels</a></li>
+          </ul>
+        </li>
+            
+        <li class="treeview">
+          <a href="javascript:void(0)">
+            <i class="fa fa-pie-chart"></i>
+            <span>User Channels</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="/channel"><i class="fa fa-circle-o"></i> Channels list</a></li>
+            <li><a href="/channel/add"><i class="fa fa-circle-o"></i> Add channels</a></li>
           </ul>
         </li>
         
-        <li>
-          <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();"><i class="fa fa-power-off"></i> <span>Sign out</span></a>
-
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-        </li>
+        <li><a href="/logout"><i class="fa fa-book"></i> <span>Sign Out</span></a></li>
         <li class="header">LABELS</li>
         
       </ul>

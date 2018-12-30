@@ -36,34 +36,26 @@ Route::get('/user/add', 'UserController@addUser');
 Route::post('/user/add', 'UserController@addUser');
 Route::get('/user/edit', 'UserController@editUser');
 Route::post('/user/edit', 'UserController@editUser');
-Route::post('/user/profile', 'UserController@editUserProfile');
 
-// account
+// user
 Route::get('/account', 'AccountController@index');
 Route::get('/account/add', 'AccountController@addAccount');
 Route::post('/account/add', 'AccountController@addAccount');
 Route::get('/account/edit', 'AccountController@editAccount');
 Route::post('/account/edit', 'AccountController@editAccount');
 
-// companies
-Route::get('/account/companies', 'AccountController@companies');
-Route::get('/account/add-company', 'AccountController@addCompany');
-Route::post('/account/add-company', 'AccountController@addCompany');
-Route::get('/account/edit-company/{id}', 'AccountController@editCompany');
-Route::post('/account/edit-company/{id}', 'AccountController@editCompany');
+//channels
+Route::get('/channel', 'ChannelController@index');
+Route::get('/channel/add', 'ChannelController@addChannel');
+Route::post('/channel/add', 'ChannelController@addChannel');
 
-// companies
-// Route::get('/account/companies', 'AccountController@companies');
-Route::get('/account/add-warehouse/{companyId}', 'AccountController@addWarehouse');
-Route::post('/account/add-warehouse/{companyId}', 'AccountController@addWarehouse');
-Route::get('/account/edit-warehouse/{companyId}/{id}', 'AccountController@editWarehouse');
-Route::post('/account/edit-warehouse/{companyId}/{id}', 'AccountController@editWarehouse');
+//Admin channels
+Route::get('/admin-channel', 'AdminchannelController@index');
+Route::post('/admin-channel/add', 'AdminchannelController@addChannel');
+Route::get('/admin-channel/add', 'AdminchannelController@addChannel');
+Route::get('/admin-channel/edit/{id}', 'AdminchannelController@editChannel');
+Route::post('/admin-channel/edit/{id}', 'AdminchannelController@editChannel');
 
-Route::get('/account/{companyId}/warehouses/{wId}', 'AccountController@warehousesList');
 
-// Tax
-Route::get('/account/tax', 'TaxController@index');
-Route::get('/account/add-tax', 'TaxController@addTax');
-Route::post('/account/add-tax', 'TaxController@addTax');
-Route::get('/account/edit-tax/{id}', 'TaxController@editTax');
-Route::post('/account/edit-ax/{id}', 'TaxController@editTax');
+
+

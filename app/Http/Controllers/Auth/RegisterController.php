@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Models\UserAccount;
 
 class RegisterController extends Controller
 {
@@ -53,7 +52,6 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'mobile' => 'required|string|min:10|max:10',
         ]);
     }
 
@@ -65,25 +63,11 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::create([
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'mobile' => $data['mobile'],
             'status' => 0,
         ]);
-        if($user->id){
-
-            $accountData = new UserAccount();
-
-            $accountData->account_type= 1;
-            $accountData->email= $user->email;
-            $accountData->phone= $user->mobile;
-            $accountData->user_id= $user->id;
-            $accountData->is_active= false;
-            
-            $accountData->save();
-        }
-        return $user;
     }
 }

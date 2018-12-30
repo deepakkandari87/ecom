@@ -7,9 +7,9 @@
     <small>it all starts here</small>
   </h1>
   <ol class="breadcrumb">
-    <li><a href="javascript:;"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="javascript:;">Account</a></li>
-    <li class="active">Users</li>
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li><a href="#">Account</a></li>
+    <li class="active">User</li>
   </ol>
 </section>
 @endsection
@@ -19,8 +19,8 @@
 <section class="content">
 <!-- Default box -->
   <div class="box">
-    <div class="box-header">
-      <h3 class="box-title">Users Details</h3>
+    <div class="box-header with-border">
+      <h3 class="box-title">Title</h3>
 
       <div class="box-tools pull-right">
         <!-- <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
@@ -28,19 +28,11 @@
           <i class="fa fa-minus"></i></button>
         <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
           <i class="fa fa-times"></i></button> -->
+          <a href="javascript:;" data-toggle="modal" data-target="#modal-add-user">Add User</a>
       </div>
     </div>
     <div class="box-body">
-      @if(!empty($users))
-        <div>
-          <ul>
-          <li><span><i class="fa fa-user"></i> <b>{{$users->name}}</b> <span>(OWNER)</span></span></li>
-          <li><span>{{$users->email}}</span></li>
-          <li><span>{{$users->timezone}}</span></li>
-          </ul>
-        </div>
-        <a class="btn btn-success" href="{{url('/user/add')}}"><i class="fa fa-edit"></i> Edit User Details</a>
-      @endif
+      Start creating your amazing application!
     </div>
     <!-- /.box-body -->
     <div class="box-footer">
@@ -51,6 +43,58 @@
   <!-- /.box -->
 </section>
 
+<div class="modal fade" id="modal-add-user">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add User</h4>
+      </div>
+      <form method="POST" action="/user/add">
+        @csrf
+      <div class="modal-body">
+        <div class="box-body">
+
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" class="form-control" id="fullName" name="fullName" placeholder="Enter full name" required>
+            <span class="invalid-feedback">
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="userEmail">Email address</label>
+            <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="Enter email" required>
+            <span class="invalid-feedback">
+            </span>
+          </div>
+          <div class="form-group">
+            <label for="userRole">Select Role</label>
+            <select class="form-control" id="userRole" name="userRole" required>
+              <option value="">select</option>
+              <option value="1">option 2</option>
+              <option value="2">option 3</option>
+              <option value="3">option 4</option>
+              <option value="4">option 5</option>
+            </select>
+            <span class="invalid-feedback">
+            </span>
+          </div>
+          
+        </div>
+        <!-- /.box-body -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="submit-add-user">Save changes</button>
+      </div>
+      </form>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 @endsection
 

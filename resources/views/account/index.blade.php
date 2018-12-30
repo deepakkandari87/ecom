@@ -19,7 +19,7 @@
 <section class="content">
 <!-- Default box -->
   <div class="box">
-    <div class="box-header">
+    <div class="box-header with-border">
       <h3 class="box-title">Account Details</h3>
 
       <div class="box-tools pull-right">
@@ -34,9 +34,9 @@
     <div class="box-body">
       @if(!empty($accounts))
         @include('account.account-list') 
-        <a class="btn btn-success" href="{{url('/account/add')}}"><i class="fa fa-edit"></i> Edit Account Details</a>
+        <a class="btn btn-success" href="{{url('/account/add')}}">Edit Account Details</a>
       @else
-        <a class="btn btn-success" href="{{url('/account/add')}}"><i class="fa fa-edit"></i> Add Account Details</a>
+        <a class="btn btn-success" href="{{url('/account/add')}}">Add Account Details</a>
       @endif
     </div>
     <!-- /.box-body -->
@@ -136,20 +136,18 @@
           if(msg == ''){
 
              $.ajax({
-                    headers: {
-                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    },
                     /* the route pointing to the post function */
-                    url: '/account/add-tax',
+                    url: '/user/add',
                     type: 'POST',
                     /* send the csrf-token and the input to the controller */
-                    data: {uname : fullName, email : userEmail, role : userRole},
+                    data: {uname : fullName, email : userEmail, role : userRole, _token : $('meta[name="csrf-token"]').attr('content')},
                     dataType: 'JSON',
                     /* remind that 'data' is the response of the AjaxController */
                     success: function (data) { 
                         $(".writeinfo").append(data.msg); 
                     }
                 }); 
+          
           }
       });
 

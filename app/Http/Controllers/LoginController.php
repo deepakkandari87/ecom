@@ -34,7 +34,6 @@ class LoginController extends Controller
 
             if (Auth::attempt($body))
             {
-                
                 echo 'login';
                 //return redirect()->intended('dashboard');
             } else {
